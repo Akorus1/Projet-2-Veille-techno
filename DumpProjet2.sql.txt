@@ -1,0 +1,161 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3308
+-- Généré le :  sam. 20 juin 2020 à 02:35
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.3.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `projet 2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `Nom` varchar(300) NOT NULL,
+  `Adresse_mail` varchar(300) NOT NULL,
+  `Num_telephone` int(50) NOT NULL,
+  `mot_de_passe` varchar(10000) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `admins`
+--
+
+INSERT INTO `admins` (`Nom`, `Adresse_mail`, `Num_telephone`, `mot_de_passe`) VALUES
+('Meffodong Kevin', 'kevin.meffodong@viacesi.fr', 782499184, NULL),
+('Perrier Valentin', 'valentin.perrier@viacesi.fr', 6060606, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+CREATE TABLE IF NOT EXISTS `clients` (
+  `Nom` varchar(300) NOT NULL,
+  `Localisation` varchar(300) NOT NULL,
+  `Nom_entreprise` varchar(300) NOT NULL,
+  `Localisation_entreprise` varchar(300) NOT NULL,
+  `Adresse_mail` varchar(300) NOT NULL,
+  `Num_telephone` int(20) NOT NULL,
+  `ID` int(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commandes`
+--
+
+DROP TABLE IF EXISTS `commandes`;
+CREATE TABLE IF NOT EXISTS `commandes` (
+  `Nom_client` varchar(254) NOT NULL,
+  `Adresse_mail_client` varchar(254) NOT NULL,
+  `Num_telephone_client` int(254) NOT NULL,
+  `Nom_entreprise` varchar(254) NOT NULL,
+  `Localisation_entreprise` varchar(254) NOT NULL,
+  `Date` int(254) NOT NULL,
+  `Nom_produits` varchar(254) NOT NULL,
+  `Nb_produits` int(254) NOT NULL,
+  `ID` int(254) NOT NULL,
+  `ID_clients` int(254) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ID_clients` (`ID_clients`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaires`
+--
+
+DROP TABLE IF EXISTS `commentaires`;
+CREATE TABLE IF NOT EXISTS `commentaires` (
+  `ID` int(254) NOT NULL,
+  `ID_client` int(254) NOT NULL,
+  `Contenu` text NOT NULL,
+  `Date` int(254) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ID_client` (`ID_client`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produits`
+--
+
+DROP TABLE IF EXISTS `produits`;
+CREATE TABLE IF NOT EXISTS `produits` (
+  `Nom` varchar(254) NOT NULL,
+  `Type` int(254) NOT NULL,
+  `Prix` int(254) NOT NULL,
+  `Fabricant` varchar(254) NOT NULL,
+  `ID` int(254) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sponsors`
+--
+
+DROP TABLE IF EXISTS `sponsors`;
+CREATE TABLE IF NOT EXISTS `sponsors` (
+  `Nom` varchar(300) NOT NULL,
+  `Adresse_mail` varchar(300) NOT NULL,
+  `Num_telephone` int(50) NOT NULL,
+  `Mot_de_passe` varchar(300) NOT NULL,
+  `ID` int(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `suivi des ventes`
+--
+
+DROP TABLE IF EXISTS `suivi des ventes`;
+CREATE TABLE IF NOT EXISTS `suivi des ventes` (
+  `Nom_client` varchar(254) NOT NULL,
+  `Nom_entreprise` varchar(254) NOT NULL,
+  `Nom_sponsor` varchar(254) NOT NULL,
+  `Adresse_mail_client` varchar(254) NOT NULL,
+  `Adresse_mail_sponsor` varchar(254) NOT NULL,
+  `Localisation_entreprise` varchar(254) NOT NULL,
+  `Num_telephone_client` int(254) NOT NULL,
+  `Date_commande` int(254) NOT NULL,
+  `Num_commande` int(254) NOT NULL,
+  `Nb_produits_vendus` int(254) NOT NULL,
+  `ID_client` int(254) NOT NULL,
+  `ID_produits` int(254) DEFAULT NULL,
+  PRIMARY KEY (`ID_client`),
+  KEY `Num_commande` (`Num_commande`),
+  KEY `ID_produits` (`ID_produits`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
