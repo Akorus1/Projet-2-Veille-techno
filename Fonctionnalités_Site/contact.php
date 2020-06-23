@@ -18,11 +18,11 @@
 <body>
  <div class="box">
  <h1>Nous contacter</h1>
- <p class="p1">Pour toutes questions éventuelle ou soucis technique veuillez prendre contact avec les admins ci-dessous</p>
- <p class="p2">Meffodong Kévin <br />
- Adresse mail: kevin.meffodong@viacesi.fr <br />
- Numéro de téléphone: 0782499184 <br />
-</p>
+<p class="p1">Pour toutes questions éventuelle ou soucis technique veuillez prendre contact avec les admins ci-dessous</p>
+<B><p class="p2">Meffodong Kévin&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Perrier Valentin&emsp; <br />
+  kevin.meffodong@viacesi.fr&emsp;&emsp; valentin.perrier@viacesi.fr <br />
+  0782499184&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br />
+</p></B>
 </div>
 </body>
 <footer>
