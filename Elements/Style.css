@@ -3,6 +3,9 @@ body
 background: url('https://img.huffingtonpost.com/asset/5ea3e72b220000f00a827a23.jpeg?cache=xGwii2ni9W&ops=scalefit_630_noupscale');
 background-attachment: fixed;
 background-size: cover;
+margin: 0;
+padding: 0;
+height: 100vh;
 }
 .box
 {

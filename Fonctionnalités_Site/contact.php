@@ -20,8 +20,8 @@
  <h1>Nous contacter</h1>
 <p class="p1">Pour toutes questions éventuelle ou soucis technique veuillez prendre contact avec les admins ci-dessous</p>
 <B><p class="p2">Meffodong Kévin&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Perrier Valentin&emsp; <br />
-  kevin.meffodong@viacesi.fr&emsp;&emsp; valentin.perrier@viacesi.fr <br />
-  0782499184&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br />
+<a href="mailto:kevin.meffodong@viacesi.fr">kevin.meffodong@viacesi.fr</a>&emsp;&emsp; <a href="mailto:valentin.perrier@viacesi.fr">valentin.perrier@viacesi.fr</a> <br />
+&ensp;0782499184&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0623400063&ensp;&ensp; <br />
 </p></B>
 </div>
 </body>
