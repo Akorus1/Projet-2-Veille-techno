@@ -17,12 +17,12 @@
 </header>
 <body>
 <div class="box">
-<div style="margin: -110px 400px; padding:0px; border: solid; width:100px; height:104px;">
-      <img src="https://nsa40.casimages.com/img/2020/06/23/mini_20062304240865070.png"  alt="Kevin Meffodong" style="width: 100%; height: auto;">
+<div style="margin: 0% 30%; padding:0px; border: solid; width:100px; height:104px;">
+      <img src="https://nsa40.casimages.com/img/2020/06/23/mini_20062304240865070.png"  alt="Kevin Meffodong" width="100%" height="auto">
  <p>Kevin Meffodong</p>
  </div>
- <div style="margin: -110px 800px;  padding:0px; border: solid; width: 100px; height: 117px;">     
-      <img src="https://nsa40.casimages.com/img/2020/06/23/mini_200623042408147827.png"  alt="Valentin Perrier" style="width: 100%; height: auto;">
+ <div style="margin: -8.5% 61%; padding:0px; border: solid; width: 100px; height: 116px;">     
+      <img src="https://nsa40.casimages.com/img/2020/06/23/mini_200623042408147827.png"  alt="Valentin Perrier" width="100%" height="auto">
 <p>Valentin Perrier</p>
 </div>
 <B><p class="p2" style="margin-top:15%;">Notre identité<br>
