@@ -18,14 +18,14 @@ $_SESSION['commande']= array();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <title>Les masques</title>
+        <title>Les parois</title>
 </head>
 <header>
         <?php require_once("../../Elements/menu.php"); ?>
 </header>
 <body>
  <div class="box">
-  <?php $requete = $bdd->prepare('SELECT * FROM produits ORDER BY ID ASC');
+  <?php $requete = $bdd->prepare('SELECT * FROM produits WHERE ID BETWEEN 7 AND 9 ORDER BY ID ASC');
         $requete->execute();
         while($produit=$requete->fetch(PDO::FETCH_OBJ)){?>
          <div style="max-height:25%; max-width:25%; margin:auto; padding:0px; border-bottom-style:solid;">                    

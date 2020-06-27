@@ -22,7 +22,7 @@ require_once("../../BDD/bdd.php");
 </header>
 <body>
  <div class="box">
- <form  action="remerciements" method="post">
+ <form  action="remerciements.php" method="post">
  <label for="inputLastName" class="sr-only">Nom</label>
    <input type="text" id="inputNom" name="nom" class="form-control" placeholder="Votre Nom" required autofocus>
    </br>
@@ -36,7 +36,7 @@ require_once("../../BDD/bdd.php");
    <input type="text" id="inputMail" name="mail" class="form-control" placeholder="Adresse mail" required>
    </br>
    <label for="inputNameEnterprise" class="sr-only">Nom de l'entreprise</label>
-   <input type="text" id="inputNomEntreprise" name="nom_entreprise" class="form-control">
+   <input type="text" id="inputNomEntreprise" name="nom_entreprise" class="form-control" placeholder="Nom de l'entrprise" >
    </br>
    <label for="inputPlace" class="sr-only">Localisation de l'entreprise</label>
    <input type="text" id="inputLieu" name="lieu_entreprise" class="form-control" placeholder="Localisation de l'entrprise">

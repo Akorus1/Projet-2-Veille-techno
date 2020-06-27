@@ -18,9 +18,7 @@ if(isset($_GET['id'])){
     unset($_SESSION['panier'][$_GET['id']]);
 }
 
-if(empty($_SESSION['panier'])){
-        header ('Location: http://projet2/Projet-2-Veille-techno/Accueil_et_Mentions_légales/Accueil.php');
-}
+
 if(isset($_GET['submit'])){
        header( 'Location: Commande.php');
 }
@@ -44,8 +42,18 @@ if(isset($_GET['submit'])){
 </header>
 <body>
  <div class="box">
- <form action="Commande.php" method="get">
- <button type="submit" name="submit" class="btn btn-primary" value="submit" style="margin:2% 20%;"> Finaliser ma commande</button>
+ <?php if(empty($_SESSION['panier'])){
+        echo "<p class=\"p1\" style=\"margin: auto; padding:0px; position:aboslute\">Votre panier est vide</p>
+        <a style=\"margin:43%;\" href=\"../../Accueil_et_Mentions_légales/Accueil.php\">Retourner à l'accueil</a>
+        <script type=\"text/javascript\">
+        $(document).ready(function() {
+                    $(\"button\").remove();             
+            });
+</script>";
+        /*header ('Location: http://projet2/Projet-2-Veille-techno/Accueil_et_Mentions_légales/Accueil.php');*/
+} ?>
+ <form action="Commande.php" id="form" method="get">
+ <button type="submit" id="bouton" name="submit" class="btn btn-primary" value="submit" style="margin:2% 20%;"> Finaliser ma commande</button>
  <?php   
 
         $ids=array_values($_SESSION['panier']);
@@ -76,17 +84,11 @@ if(isset($_GET['submit'])){
                <input type="hidden" name="nom" value="<?php echo $produit->Nom ?>" ></hidden>
                
                <?php
-               
-               if(isset($_SESSION['commande'], $produit->Type)) {
-                var_dump(isset($_SESSION['commande']));
-               
+               if(isset($_SESSION['commande'], $produit->Type)) {           
                array_push($_SESSION['commande'], $produit->Type);
                unset($_SESSION['commande'][$produit->Type]);
-               var_dump($_SESSION['commande']);
                }
                /* unset($_SESSION['panier']);== $_SESSION['commande']['Type'])*/
-               
-               
          } ?>               
 </form>               
 </div>
