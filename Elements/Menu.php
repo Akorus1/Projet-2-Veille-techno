@@ -12,7 +12,8 @@
     <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/La_boutique/Masques.php">Les masques</a>
     <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/Inscription.php">Les parois anti-contact</a>
     <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/Inscription.php">Les gants</a>
-    <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/Inscription.php">Passer une commande</a>
+    <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/La_boutique/Commande.php">Passer une commande</a>
+    <a class="dropdown-item"  href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/La_boutique/panier.php">Mon panier</a>
   </div>
 </div>
   <a class="btn btn-dark" href="http://projet2/Projet-2-Veille-techno/Fonctionnalités_Site/Lequipe.php" role="button">Qui sommes-nous ?</a>

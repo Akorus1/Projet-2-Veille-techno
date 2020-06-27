@@ -5,6 +5,7 @@ require_once("../../BDD/bdd.php");
 
 if(!isset($_SESSION['panier'])){
 $_SESSION['panier']= array();
+$_SESSION['commande']= array();
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ $_SESSION['panier']= array();
   <?php $requete = $bdd->prepare('SELECT * FROM produits ORDER BY ID ASC');
         $requete->execute();
         while($produit=$requete->fetch(PDO::FETCH_OBJ)){?>
-         <div style="max-height:25%; max-width:25%; margin:auto; padding:0px;">                    
+         <div style="max-height:25%; max-width:25%; margin:auto; padding:0px; border-bottom-style:solid;">                    
          <img class="img-fluid" src="../../img/<?php echo $produit->ID; ?>.jpg">
          <div style="border-top:solid;">
          <B><?php echo $produit->Nom; echo $produit->Type; ?><br>
@@ -39,12 +40,15 @@ $_SESSION['panier']= array();
                                 <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
                                 <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
                                 <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
-                                </svg>
+                                </svg>        
                         </a>
+                </div><br><br>
+                <div>
+                <B><p><?php echo $produit->Description; ?></p></B>
                 </div>
         </div>
         </div>
-        <br><br><br><br>
+        <br><br><br>
         <?php } ?>
  </div>
 </body>
