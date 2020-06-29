@@ -1,7 +1,7 @@
 <div class="inscriptionform">
     <div id="register" class="animate form">
         <form  method="post" action="scriptInscription.php" autocomplete="on">
-            <h1> Inscription Etudiants</h1>
+            <h1> Inscription</h1>
 
             <?php //NOM ?>
             <p>
@@ -50,7 +50,7 @@
             </p>
             <p class="change_link">
                 Déjà inscrit ?
-                <a href="./Connexion.php" class="to_register"> Connexion </a>
+                <a href="./Menu_Connexion.php" class="to_register"> Connexion </a>
             </p>
         </form>
     </div>

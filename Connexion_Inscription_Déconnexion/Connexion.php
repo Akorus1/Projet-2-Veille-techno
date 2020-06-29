@@ -1,5 +1,5 @@
 <div id="register" class="animate form">
-    <form  method="post" action="scriptConnexion.php" action="commande.php" autocomplete="on">
+    <form  method="post" action="scriptConnexion.php" autocomplete="on">
         <h1> Connexion </h1>
 
         <?php //Addresse mail ?>
@@ -19,7 +19,7 @@
         </p>
         <p class="change_link">
             Pas encore insctit ?
-            <a href="./Inscription.php" class="to_register"> Insciption </a>
+            <a href="./Menu_Inscription.php" class="to_register"> Insciption </a>
         </p>
     </form>
 </div>

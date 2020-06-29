@@ -1,18 +1,18 @@
 <?php
-/* Lien avec la DBB */
-$bdd = new PDO('mysql:host=localhost;dbname=projet_web;charset=utf8', 'root', '');
+/* Lien avec la BDD */
+$bdd = new PDO('mysql:host=localhost;dbname=projet-2;charset=utf8', 'root', '');
 
 /* Récupération des login du formulaire*/
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
-$email =  $_POST['email'];
 $mdp = $_POST['motdepasse'];
+$email =  $_POST['email'];
 $adresse = $_POST['adresse'];
 $cp = $_POST['codepostal'];
 $ville = $_POST['ville'];
 
 //on regarde si le mots de passe possede une MAJ et un CHIFFRE
-if(preg_match_all('#[A-Z0-9]#', $mdp)){
+//if(preg_match_all('#[A-Z0-9]#', $mdp)){
 
 
     // chiffrage du mdp
@@ -21,18 +21,18 @@ if(preg_match_all('#[A-Z0-9]#', $mdp)){
 
     // Requete qui va insérer les données dans la bdd pour les nouveau inscrit
     // Requête préparée pour empêcher les injections SQL
-    $requete_création_User = $bdd->prepare("INSERT INTO utilisateur ( Nom, Prenom, Mots_de_passe, Email, Adresse, Code_Postal, Ville, Status) VALUES( :nom,:prenom,:motdepasse,:email,:adresse,:codepostal,:ville)");
+    $requete_création_User = $bdd->prepare("INSERT INTO utilisateur ( Nom, Prenom, Mots_de_passe, Email, Adresse, Code_Postal, Ville) VALUES(:nom,:prenom,:motdepasse,:email,:adresse,:codepostal,:ville)");
 
     //préparation des variables
     $requete_création_User->bindValue(':nom', $nom, PDO::PARAM_STR); //PDO::PARAM_STR est l'encodage vers un varchar pour mysql
     $requete_création_User->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-    $requete_création_User->bindValue(':email', $email, PDO::PARAM_STR);
     $requete_création_User->bindValue(':motdepasse', $mdp_chiffrer, PDO::PARAM_STR);
+    $requete_création_User->bindValue(':email', $email, PDO::PARAM_STR);
     $requete_création_User->bindValue(':adresse', $adresse, PDO::PARAM_STR);
     $requete_création_User->bindValue(':codepostal', $cp, PDO::PARAM_STR);
     $requete_création_User->bindValue(':ville', $ville, PDO::PARAM_STR);
 
-    // Requete qui permet de voir si un utilisateur est deja créer
+    // Requete qui permet de voir si un utilisateur est deja créé
     $requete_recup = $bdd -> prepare("SELECT Nom, Prenom, Mots_de_passe, Email, Adresse, Code_Postal, Ville from utilisateur where Nom = :nom");
     $requete_recup->bindValue(':nom', $nom, PDO::PARAM_STR); //PDO::PARAM_STR est l'encodage vers un varchar pour mysql
 
@@ -47,9 +47,9 @@ if(preg_match_all('#[A-Z0-9]#', $mdp)){
     }else{
         //création de l'utilisateur
         $requete_création_User->execute();
-        echo "<script type='text/javascript'>window.location.replace('Connexion.php')</script>";
+        echo "<script type='text/javascript'>window.location.replace('Menu_Connexion.php')</script>";
     }
 
-}
+//}
 
 ?>

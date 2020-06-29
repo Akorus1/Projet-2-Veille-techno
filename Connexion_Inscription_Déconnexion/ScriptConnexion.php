@@ -6,7 +6,7 @@ if(!isset($_SESSION));{
 
 
 /* Lien avec la DBB */
-$bdd = new PDO('mysql:host=localhost;dbname=projet_web;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=projet-2;charset=utf8', 'root', '');
 
 
 
@@ -37,9 +37,9 @@ if($nom == $donne['Nom'] && $prenom == $donne['Prenom'] && $mdp_chiffrer == $don
     $_SESSION['prenom']= $prenom_user;
     $_SESSION['email']= $email_user;
 
-    echo "<script type='text/javascript'>window.location.replace('Index_Connected.php')</script>";
+    echo "<script type='text/javascript'>window.location.replace('../Accueil_et_Mentions_légales/Accueil.php')</script>";
 }else{
-    echo "<script type='text/javascript'>window.location.replace('Connexion.php')</script>";
+    echo "<script type='text/javascript'>window.location.replace('Menu_Connexion.php')</script>";
 }
 
 
