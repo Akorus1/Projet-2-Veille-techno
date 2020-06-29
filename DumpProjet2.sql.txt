@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3308
--- Généré le :  sam. 20 juin 2020 à 02:35
--- Version du serveur :  5.7.26
--- Version de PHP :  7.3.5
+-- Hôte : 127.0.0.1:3307
+-- Généré le :  sam. 27 juin 2020 à 03:06
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `projet 2`
+-- Base de données :  `projet-2`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `Localisation_entreprise` varchar(300) NOT NULL,
   `Adresse_mail` varchar(300) NOT NULL,
   `Num_telephone` int(20) NOT NULL,
-  `ID` int(255) NOT NULL,
+  `ID` int(255) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `commandes` (
   `Date` int(254) NOT NULL,
   `Nom_produits` varchar(254) NOT NULL,
   `Nb_produits` int(254) NOT NULL,
-  `ID` int(254) NOT NULL,
+  `ID` int(254) NOT NULL AUTO_INCREMENT,
   `ID_clients` int(254) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_clients` (`ID_clients`)
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `commandes` (
 
 DROP TABLE IF EXISTS `commentaires`;
 CREATE TABLE IF NOT EXISTS `commentaires` (
-  `ID` int(254) NOT NULL,
+  `ID` int(254) NOT NULL AUTO_INCREMENT,
   `ID_client` int(254) NOT NULL,
   `Contenu` text NOT NULL,
   `Date` int(254) NOT NULL,
@@ -109,11 +109,29 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 DROP TABLE IF EXISTS `produits`;
 CREATE TABLE IF NOT EXISTS `produits` (
   `Nom` varchar(254) NOT NULL,
-  `Type` int(254) NOT NULL,
-  `Prix` int(254) NOT NULL,
-  `Fabricant` varchar(254) NOT NULL,
-  `ID` int(254) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `Type` varchar(254) NOT NULL,
+  `Prix` float(254,2) NOT NULL,
+  `Description` text NOT NULL,
+  `ID` int(254) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`Nom`, `Type`, `Prix`, `Description`, `ID`) VALUES
+('Masque', 'FFP2', 0.89, ' S’utilise quant à eux contre les poussières, les particules mais également les maladies, virus, champignons ou encore contre le plomb, le pollen. Masque jetable. ', 2),
+('Masque', 'FFP1', 0.79, 'S’utilise uniquement contre les poussières et les particules fines non toxiques. Ils sont jetables.', 1),
+('Masque', 'FFP3', 0.95, 'S’utilise quant à eux contre les poussières, les particules mais également les maladies, virus, champignons ou encore contre le plomb, le pollen et l’amiante. Ils sont eux aussi jetable.', 3),
+('Masque', 'Chirurgical 3 plis', 0.29, 'Masque facial jetable, de qualité supérieure, empêche les projections et les pulvérisations émis par les autres, comme les éternuements et la toux, de vous atteindre. Il est respirant, inodore et hypoallergénique.', 4),
+('Masque', 'FFP2 Pliable', 0.89, 'S’utilise contre les poussières, les particules mais également les maladies, virus, champignons ou encore contre le plomb, le pollen. Ils sont très pratique et très ergonomique. Masque jetable. ', 5),
+('Masque', 'FFP3 Pliable', 0.95, 'S’utilise contre les poussières, les particules mais également les maladies, virus, champignons ou encore contre le plomb, le pollen et l\'amiante. La particularité d\'être pliable ajoute à ce produit une dimension de portabilité très pratique. Masque jetable. ', 6),
+('Parois', 'Type 1', 59.99, 'Parois d\'agence adaptée aux contacts et résistante au projections.', 7),
+('Parois', 'Type 2', 69.99, 'Parois ergonomique et large pour une sécurité accrue.', 8),
+('Parois', 'Type 3', 79.99, 'Parois panoramique renforcée permettant d\'avoir plus de sureté contre les projections.', 9),
+('Gants', 'Epais', 0.15, 'Gants épais qui limites les frictions et garantissent une protection accrue des mains.', 10),
+('Gants', 'Fins', 0.10, 'Gants fins procurent une bonne protection envers les contact avec des surfaces.', 11);
 
 -- --------------------------------------------------------
 
@@ -127,7 +145,8 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
   `Adresse_mail` varchar(300) NOT NULL,
   `Num_telephone` int(50) NOT NULL,
   `Mot_de_passe` varchar(300) NOT NULL,
-  `ID` int(100) NOT NULL
+  `ID` int(254) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -148,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `suivi des ventes` (
   `Date_commande` int(254) NOT NULL,
   `Num_commande` int(254) NOT NULL,
   `Nb_produits_vendus` int(254) NOT NULL,
-  `ID_client` int(254) NOT NULL,
+  `ID_client` int(254) NOT NULL AUTO_INCREMENT,
   `ID_produits` int(254) DEFAULT NULL,
   PRIMARY KEY (`ID_client`),
   KEY `Num_commande` (`Num_commande`),
