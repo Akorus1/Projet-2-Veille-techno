@@ -25,7 +25,7 @@ $_SESSION['commande']= array();
 </header>
 <body>
  <div class="box">
-  <?php $requete = $bdd->prepare('SELECT * FROM produits ORDER BY ID ASC');
+  <?php $requete = $bdd->prepare('SELECT * FROM produits WHERE ID BETWEEN 1 AND 6 ORDER BY ID ASC');
         $requete->execute();
         while($produit=$requete->fetch(PDO::FETCH_OBJ)){?>
          <div style="max-height:25%; max-width:25%; margin:auto; padding:0px; border-bottom-style:solid;">                    

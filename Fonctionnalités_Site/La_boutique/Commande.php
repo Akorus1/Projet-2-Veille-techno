@@ -3,7 +3,26 @@
 <?php 
 require_once("../../BDD/bdd.php");
 
+$nom = $_POST['nom'];
+$num = $_POST['num'];
+$email = $_POST['mail'];
+$nom_ent = $_POST['nom_entreprise'];
+$lieu_ent = $_POST['lieu_entreprise'];
+$produits = $_POST['produits'];
+$date = $_POST['date'];
 
+if(isset($_POST['submit'])) 
+{
+        $requete2 = $bdd->prepare("INSERT INTO `commande` (`Nom_client`, `Num_telephone_client`, `Adresse_mail_client`, `Nom_entreprise`, `Localisation_entreprise`, `Nom_produits`, `Date` ) VALUES(:nom, :num, :mail, :nom_entreprise, :localisation_entreprise, :nom_produits, :date)");
+        $requete2->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $requete2->bindParam(':num', $num, PDO::PARAM_INT);
+        $requete2->bindParam(':mail', $email, PDO::PARAM_STR);
+        $requete2->bindParam(':nom_entreprise', $nom_ent, PDO::PARAM_STR);
+        $requete2->bindParam(':localisation_entreprise', $lieu_ent, PDO::PARAM_STR);
+        $requete2->bindParam(':nom_produits', $produits, PDO::PARAM_STR);
+        $requete2->bindParam(':date', $date, PDO::PARAM_INT);
+        $requete2->execute();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,11 +42,9 @@ require_once("../../BDD/bdd.php");
 <body>
  <div class="box">
  <form  action="remerciements.php" method="post">
+ <h2 class="text-center">Formulaire de contact</h2>
  <label for="inputLastName" class="sr-only">Nom</label>
    <input type="text" id="inputNom" name="nom" class="form-control" placeholder="Votre Nom" required autofocus>
-   </br>
-   <label for="inputFirstName" class="sr-only">Prénom</label>
-   <input type="text" id="inputPrenom" name="prenom" class="form-control" placeholder="Votre Prenom" required>
    </br>
    <label for="inputNumtel" class="sr-only">Numéro de téléphone</label>
    <input type="text" id="inputNum" name="num" class="form-control" placeholder="Numéro de téléphone" required>
@@ -42,7 +59,7 @@ require_once("../../BDD/bdd.php");
    <input type="text" id="inputLieu" name="lieu_entreprise" class="form-control" placeholder="Localisation de l'entrprise">
    </br>
    <label for="inputPlace" class="sr-only"></label>
-   <input type="text" id="inputLieu" name="lieu_entreprise" value=" Masque<?php 
+   <input type="text" id="inputLieu" name="produits" value=" Masque<?php 
     
            $ids=implode("," , $_SESSION['commande']);
            $tab=explode("," , $ids);
@@ -52,7 +69,7 @@ require_once("../../BDD/bdd.php");
    </br>
    </br>
    <label for="inputDate" class="sr-only">Date</label>
-   <input type="text" id="inputNom" name="nom" class="form-control" placeholder="Date">
+   <input type="text" id="inputNom" name="date" class="form-control" placeholder="Date">
    </br>
 
    <a href="Connexion.php" target="blank">Déjà enregistré ? </a>
