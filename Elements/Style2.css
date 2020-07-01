@@ -1,0 +1,26 @@
+/* inscription/connection */
+#register{
+    position: sticky;
+    left: 40%;
+    text-align:center;
+    margin-right: 100px;
+}
+#register h1{
+    margin-bottom: 20px;
+}
+#register a{
+    color: #343A40;
+}
+.signin_button input{
+    border: 0.1em outset #E2E4E2;
+    background-color: #343A40;
+    color: #E2E4E2;
+    padding: 0.3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.form{
+    margin-top: 120px;
+    /*border: 0.1em outset #343A40;
+    padding: 0.3em;*/
+}
